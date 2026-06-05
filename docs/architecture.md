@@ -20,7 +20,16 @@ Core architectural decisions:
 - API access is isolated in `src/services/quizApi.js`
 - Questions and answer options are randomized in the UI layer
 
-## APP STRUCTURE
+## DEVELOPMENT ENVIRONMENT
+
+Contributors must have the following installed to run the project locally:
+
+- Node.js
+- npm
+
+All project dependencies should be installed and managed using npm.
+
+Alternative package managers (Yarn, pnpm, Bun, etc.) are currently out of scope unless the team agrees otherwise.
 
 ## APP STRUCTURE
 
