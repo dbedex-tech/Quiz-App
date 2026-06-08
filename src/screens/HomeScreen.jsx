@@ -1,5 +1,3 @@
-import "./HomeScreen.css";
-
 function HomeScreen() {
   return <h1>Home Screen</h1>;
 }
