@@ -1,3 +1,232 @@
-:root {
-  /* Shared design tokens */
+/* =============================================================
+   DevQuiz — Design Tokens
+   Mirrors the current Figma variables (file: Quiz App https://www.figma.com/design/bjSH4xpgWptKjggpjRC2y6/Quiz-App?node-id=4-31&t=3vBtLBIBcv8fLeTa-1).
+   Layers:  primitives → theme (semantic) → component
+   ============================================================= */
+
+   :root {
+    /* ============ PRIMITIVES ============ */
+
+    /* Color (primitives) */
+    --color-white-coffee: #E7E1D2;
+    --color-merino:       #F6F1E6;
+    --color-nougat:       #EFE9DA;
+    --color-sand:         #D8D0BD;
+
+    --color-lime:         #AEC84B;
+    --color-lime-soft:    #C6D97E;
+    --color-lime-tint:    #EBEFD3;
+    --color-olive-deep:   #7C9A35;
+    --color-olive-ink:    #5C7327;
+
+    --color-mauve:        #A98792;
+    --color-mauve-deep:   #8E6A76;
+    --color-mauve-tint:   #EBDFE2;
+
+    --color-charcoal:     #33322B;
+    --color-ink:          #3D3A30;
+    --color-ink-soft:     #807A68;
+
+    --color-rust:         #BC6242;
+    --color-rust-tint:    #EEDBCF;
+
+    --color-white:        #FFFFFF;
+    --color-orange:       #F5845C;
+    --color-blue:         #5C7DF5;
+
+    --color-muted-on-light: rgba(51, 50, 43, 0.80);
+    --color-muted-on-dark:  rgba(51, 50, 43, 0.60);
+
+    --color-transparent: transparent;  /* For any time you need a true transparent value. Avoid using rgba(0,0,0,0) or similar in your CSS. */
+
+    /* Spacing */
+    --space-1: 4px;    
+    --space-2: 8px;    
+    --space-3: 12px;   
+    --space-4: 16px;   
+    --space-5: 20px;  
+    --space-6: 24px;   
+    --space-7: 32px;   
+    --space-8: 40px;   
+    --space-9: 48px;
+    --space-10: 64px;
+    --space-11: 80px;
+    --space-12: 96px;
+    --space-13: 120px;
+  
+    /* Radius */
+    --radius-sm:   4px;
+    --radius-md:   6px;    
+    --radius-lg:   8px;
+    --radius-xl:   12px;
+    --radius-pill: 999px;
+
+    /* Border weight */
+    --border-thin:   2px;
+    --border-medium: 4px;
+    --border-thick:  6px;
+
+    /* Typography — handled via Figma text styles */
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-ui:      'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+    /* Font-weight */
+    --fw-regular:  400;
+    --fw-medium:   500;
+    --fw-semibold: 600;
+    --fw-bold:     700;
+
+    /* Font-size */
+    --fs-sm:   14px;
+    --fs-base: 16px;
+    --fs-lg:   18px;
+    --fs-xl:   20px;
+    --fs-2xl:  24px;
+    --fs-3xl:  30px;
+    --fs-4xl:  36px;   
+    --fs-5xl:  48px;
+
+    /* Line-height */
+    --lh-tight: 0.9;
+    --lh-normal:  1.15;
+    --lh-relaxed:  1.5;
+
+    /* Letter-spacing */
+    --ls-tight: -0.5;  /* h1 */
+    --ls-normal: 0;     /* body */
+    --ls-wide: 0.25;    /* eyebrow */
+    --ls-wider: 0.5;  /* button */
+    --ls-widest: 1;    /* all-caps button */
+  
+    /* ============ THEME (semantic) ============ */
+    --bg-canvas: var(--color-white-coffee); /*The main screen background behind everything*/   
+    --surface-primary: var(--color-nougat);   /*The standard card or container background */
+    --surface-secondary: var(--color-merino);  /*Used for nested containers or subtle content boxes */
+    --surface-disabled: var(--color-sand);   /*Used for disabled buttons or inactive form fields */
+    
+    --text-primary: var(--color-charcoal); 
+    --text-secondary: var(--color-ink);     
+    --text-tertiary: var(--color-muted-on-dark);
+    --text-inverse: var(--color-merino);     
+
+    --border-subtle: var(--color-ink-soft);   
+
+    --action-primary-bg: var(--color-olive-deep);  /* Main brand color. Used for primary buttons, active tab lines, or progress bars. */
+    --action-primary-text: var(--text-inverse);  /* Text color for primary actions. Should have high contrast against the primary background. */ 
+    --action-secondary-bg: var(--color-transparent);  /* Secondary brand color. Used for secondary buttons, secondary feature blocks, or illustrative accents. */
+    --action-secondary-text: var(--color-mauve-deep);  /* Text color for secondary actions. Should have good contrast against the secondary background. */
+
+    --accent-primary-default: var(--color-olive-deep);  /* Main brand color. Use it for active tab lines, progress bars, or checkbox checkmarks. */
+    --accent-primary-subtle: var(--color-lime-soft);  /* Badges, selection states, highlighted containers */
+    --accent-primary-strong: var(--color-olive-ink);  /* Hover states, active states, or any time you want a stronger emphasis than the default primary */
+    --accent-secondary-default: var(--color-mauve);  /* Raw secondary brand color. Use it for secondary feature blocks, illustrative accents, or secondary metric numbers on a dashboard. */
+    --accent-secondary-subtle: var(--color-mauve-tint);  /* A very soft tint of your secondary color. Used for the background of specific feature cards, banners, or specialized category tags. */
+    --accent-secondary-strong: var(--color-mauve-deep);  /* Secondary brand-colored text. Used for specific category links, sub-headers, or highlighted keyword text. */
+  
+    --feedback-success: var(--color-lime);  /* Green — for completed tasks or confirmation */
+    --feedback-warning: var(--color-orange);  /* Yellow/Orange — for alerts or pending states */
+    --feedback-error: var(--color-rust);  /* Red — for system errors or destructive actions*/
+    --feedback-info: var(--color-blue);  /* Blue — for informational messages or neutral actions */
+  
+    /* ============ COMPONENT ============ */
+  
+    /* Topic pill (Default) */
+    --topicpill-default-bg: var(--surface-secondary);
+    --topicpill-default-label: var(--text-primary);
+    --topicpill-default-border-color: var(--border-subtle);
+    --topicpill-border-weight: var(--border-thin);
+    --topicpill-padding-inline: var(--space-7); /* 32px total horizontal padding */
+    --topicpill-padding-block: var(--space-6); /* 24px total vertical padding */
+    --topicpill-radius: var(--radius-sm);
+
+    /* Topic pill (Selected) */
+    --topicpill-selected-bg: var(--accent-secondary-subtle);
+    --topicpill-selected-border: var(--accent-secondary-strong);
+    --topicpill-selected-label: var(--accent-secondary-strong);
+  
+    /* Button (Primary, Secondary: Hover/Active/Focus/Disabled) */
+    --button-primary-padding-inline: var(--space-7);
+    --button-primary-padding-block:  var(--space-5);
+    --button-primary-radius:         var(--radius-pill);
+
+    /* Button (Primary:default) */
+    --button-primary-default-bg:     var(--action-primary-bg);
+    --button-primary-default-text:   var(--action-primary-text);
+    --button-primary-default-border: var(--border-thin) solid var(--color-transparent);
+
+    /* Button (Primary:hover) */
+    --button-primary-hover-bg:     var(--accent-primary-strong);
+    --button-primary-hover-text:   var(--action-primary-text);
+    --button-primary-hover-shadow:
+      0 0 0 4px var(--accent-primary-strong),
+      0 0 0 4px var(--surface-primary) inset;
+
+    /* Button (Primary:active) */
+    --button-primary-active-bg:     var(--action-primary-bg);
+    --button-primary-active-text:   var(--action-primary-text);
+    --button-primary-active-shadow: 0 0 0 2px var(--accent-primary-strong) inset;
+
+    /* Button (Primary:focus) */
+    --button-primary-focus-bg:     var(--action-primary-bg);
+    --button-primary-focus-text:   var(--action-primary-text);
+    --button-primary-focus-shadow:
+      0 0 0 4px var(--feedback-warning, var(--color-orange)),
+      0 0 0 4px var(--accent-primary-strong) inset;
+
+    /* Button (Primary:disabled) */
+    --button-primary-disabled-bg:   var(--color-sand);
+    --button-primary-disabled-text: var(--text-tertiary);
+
+    /* Button (Secondary:default) */
+    --button-secondary-default-bg:     var(--surface-disabled);
+    --button-secondary-default-text:   var(--action-secondary-text);
+    --button-secondary-default-border: var(--border-medium) solid var(--accent-secondary-strong);
+
+    /* Button (Secondary:hover) */
+    --button-secondary-hover-bg:     var(--accent-secondary-subtle);
+    --button-secondary-hover-text:   var(--action-secondary-text);
+    --button-secondary-hover-border: var(--border-medium) solid var(--accent-secondary-strong);
+
+    /* Button (Secondary:active) */
+    --button-secondary-active-bg:     var(--color-transparent);
+    --button-secondary-active-text:   var(--action-secondary-text);
+    --button-secondary-active-border: var(--border-medium) solid var(--text-tertiary);
+
+    /* Button (Secondary:focus) */
+    --button-secondary-focus-bg:     var(--color-transparent);
+    --button-secondary-focus-text:   var(--action-secondary-text);
+    --button-secondary-focus-border: var(--border-medium) solid var(--feedback-warning, var(--color-orange));
+}
+
+@supports (color: oklch(0 0 0)) {
+  :root {
+    --color-white-coffee: oklch(91.04% 0.0211  88.73);
+    --color-merino:       oklch(95.90% 0.0155  86.43);
+    --color-nougat:       oklch(93.47% 0.0210  88.72);
+    --color-sand:         oklch(85.89% 0.0272  87.86);
+
+    --color-lime:         oklch(78.90% 0.1525 120.02);
+    --color-lime-soft:    oklch(85.08% 0.1178 118.63);
+    --color-lime-tint:    oklch(94.17% 0.0371 113.71);
+    --color-olive-deep:   oklch(64.27% 0.1321 124.21);
+    --color-olive-ink:    oklch(52.04% 0.1056 124.34);
+
+    --color-mauve:        oklch(65.86% 0.0440 357.05);
+    --color-mauve-deep:   oklch(56.42% 0.0488 356.97);
+    --color-mauve-tint:   oklch(91.40% 0.0137   0.29);
+
+    --color-charcoal:     oklch(31.58% 0.0122 100.39);
+    --color-ink:          oklch(34.82% 0.0173  93.25);
+    --color-ink-soft:     oklch(57.97% 0.0276  91.74);
+
+    --color-rust:         oklch(59.56% 0.1247  39.98);
+    --color-rust-tint:    oklch(90.36% 0.0266  54.54);
+
+    --color-white:        oklch(100%   0.0000  89.88);
+    --color-orange:       oklch(73.09% 0.1488  39.96);
+    --color-blue:         oklch(62.65% 0.1828 269.03);
+
+    --color-muted-on-light: oklch(31.58% 0.0122 100.39 / 80%);
+    --color-muted-on-dark:  oklch(31.58% 0.0122 100.39 / 60%);
+  }
 }
