@@ -40,6 +40,7 @@
     --color-transparent: transparent;  /* For any time you need a true transparent value. Avoid using rgba(0,0,0,0) or similar in your CSS. */
 
     /* Spacing */
+    --space-0: 0.125rem;   /* 2px   */
     --space-1:  0.25rem;   /* 4px   */
     --space-2:  0.5rem;    /* 8px   */
     --space-3:  0.75rem;   /* 12px  */
