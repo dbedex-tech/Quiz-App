@@ -36,19 +36,57 @@ Alternative package managers (Yarn, pnpm, Bun, etc.) are currently out of scope 
 ```txt
 project-root/
 ├── src/
+│   ├── assets/
 │   ├── components/
-│   │   ├── QuizSelector.jsx
-│   │   ├── QuestionCard.jsx
-│   │   ├── AnswerOption.jsx
-│   │   ├── FeedbackMessage.jsx
-│   │   ├── ExplanationBox.jsx
-│   │   ├── TimerBar.jsx
-│   │   ├── ExitQuizModal.jsx
-│   │   └── ResultsCard.jsx
+│   │   ├── AnswerOption/
+│   │   │   ├── AnswerOption.jsx
+│   │   │   ├── AnswerOption.module.css
+│   │   │   └── index.js
+│   │   ├── Button/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Button.module.css
+│   │   │   └── index.js
+│   │   ├── ExitQuizModal/
+│   │   │   ├── ExitQuizModal.jsx
+│   │   │   ├── ExitQuizModal.module.css
+│   │   │   └── index.js
+│   │   ├── ExplanationBox/
+│   │   │   ├── ExplanationBox.jsx
+│   │   │   ├── ExplanationBox.module.css
+│   │   │   └── index.js
+│   │   ├── FeedbackMessage/
+│   │   │   ├── FeedbackMessage.jsx
+│   │   │   ├── FeedbackMessage.module.css
+│   │   │   └── index.js
+│   │   ├── QuestionCard/
+│   │   │   ├── QuestionCard.jsx
+│   │   │   ├── QuestionCard.module.css
+│   │   │   └── index.js
+│   │   ├── QuizSelector/
+│   │   │   ├── QuizSelector.jsx
+│   │   │   ├── QuizSelector.module.css
+│   │   │   └── index.js
+│   │   ├── ResultsCard/
+│   │   │   ├── ResultsCard.jsx
+│   │   │   ├── ResultsCard.module.css
+│   │   │   └── index.js
+│   │   └── TimerBar/
+│   │       ├── TimerBar.jsx
+│   │       ├── TimerBar.module.css
+│   │       └── index.js
 │   ├── screens/
-│   │   ├── HomeScreen.jsx
-│   │   ├── QuizScreen.jsx
-│   │   └── ResultsScreen.jsx
+│   │   ├── HomeScreen/
+│   │   │   ├── HomeScreen.jsx
+│   │   │   ├── HomeScreen.module.css
+│   │   │   └── index.js
+│   │   ├── QuizScreen/
+│   │   │   ├── QuizScreen.jsx
+│   │   │   ├── QuizScreen.module.css
+│   │   │   └── index.js
+│   │   └── ResultsScreen/
+│   │       ├── ResultsScreen.jsx
+│   │       ├── ResultsScreen.module.css
+│   │       └── index.js
 │   ├── services/
 │   │   └── quizApi.js
 │   ├── data/
@@ -67,20 +105,25 @@ project-root/
 
 ### Components
 
-- `QuizSelector.jsx`: topic selection UI
-- `QuestionCard.jsx`: current question container and related content
-- `AnswerOption.jsx`: individual answer option UI
-- `FeedbackMessage.jsx`: correct/incorrect feedback after validation
-- `ExplanationBox.jsx`: question explanation after validation
-- `TimerBar.jsx`: countdown display and progress bar
-- `ExitQuizModal.jsx`: exit confirmation dialog
-- `ResultsCard.jsx`: final results summary
+Each component lives in its own folder (`ComponentName/`) containing the `.jsx` file, a `.module.css` file, and an `index.js` barrel export.
+
+- `Button`: shared button component used across screens and other components
+- `QuizSelector`: topic selection UI
+- `QuestionCard`: current question container and related content
+- `AnswerOption`: individual answer option UI
+- `FeedbackMessage`: correct/incorrect feedback after validation
+- `ExplanationBox`: question explanation after validation
+- `TimerBar`: countdown display and progress bar
+- `ExitQuizModal`: exit confirmation dialog
+- `ResultsCard`: final results summary
 
 ### Screens
 
-- `HomeScreen.jsx`: Initial screen where users select a topic and start the quiz.
-- `QuizScreen.jsx`: Main quiz screen handling questions, answers, timer, and quiz progression.
-- `ResultsScreen.jsx`: Final screen displaying the user's score and feedback.
+Each screen lives in its own folder (`ScreenName/`) containing the `.jsx` file, a `.module.css` file, and an `index.js` barrel export.
+
+- `HomeScreen`: Initial screen where users select a topic and start the quiz.
+- `QuizScreen`: Main quiz screen handling questions, answers, timer, and quiz progression.
+- `ResultsScreen`: Final screen displaying the user's score and feedback.
 
 ### Services
 
@@ -98,6 +141,16 @@ project-root/
 
 - `App.jsx`: Main application controller responsible for shared state and screen navigation.
 - `main.jsx`: Application entry point that renders the React application.
+
+### Assets
+
+Static assets live in `src/assets/`. Current contents:
+
+- `logo-desktop-on-dark.svg`, `logo-desktop-on-light.svg`: desktop logo variants
+- `logo-mobile-on-dark.svg`, `logo-mobile-on-light.svg`: mobile logo variants
+- `badge-icon.svg`, `checked-badge.svg`, `star-icon.svg`, `clock-icon.svg`: UI icons
+- `card-decor-bottom-left.svg`, `card-decor-top-right.svg`: decorative card corner elements
+- `topic-css-retro-logo.png`, `topic-html-retro-logo.png`, `topic-javascript-retro-logo.png`, `topic-python-retro-logo.png`, `topic-react-retro-logo.png`, `topic-typescript-retro-logo.png`: topic artwork for the quiz selector
 
 ### App Controller
 
@@ -131,30 +184,31 @@ Navigation is state-based rather than route-based. Valid screen values are:
 
 ### Component Styles
 
-Each component should have its own CSS file located next to the corresponding component file.
+Each component has its own `.module.css` file co-located inside the component folder.
 
 Examples:
 
-- `QuizSelector.css`
-- `QuestionCard.css`
-- `AnswerOption.css`
-- `FeedbackMessage.css`
-- `ExplanationBox.css`
-- `TimerBar.css`
-- `ExitQuizModal.css`
-- `ResultsCard.css`
+- `Button/Button.module.css`
+- `QuizSelector/QuizSelector.module.css`
+- `QuestionCard/QuestionCard.module.css`
+- `AnswerOption/AnswerOption.module.css`
+- `FeedbackMessage/FeedbackMessage.module.css`
+- `ExplanationBox/ExplanationBox.module.css`
+- `TimerBar/TimerBar.module.css`
+- `ExitQuizModal/ExitQuizModal.module.css`
+- `ResultsCard/ResultsCard.module.css`
 
 These files contain styles specific to their component only.
 
 ### Screen Styles
 
-Each screen should have its own CSS file.
+Each screen has its own `.module.css` file co-located inside the screen folder.
 
 Examples:
 
-- `HomeScreen.css`
-- `QuizScreen.css`
-- `ResultsScreen.css`
+- `HomeScreen/HomeScreen.module.css`
+- `QuizScreen/QuizScreen.module.css`
+- `ResultsScreen/ResultsScreen.module.css`
 
 These files are responsible for screen-level layout and positioning.
 
