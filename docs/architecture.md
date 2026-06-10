@@ -131,7 +131,7 @@ Navigation is state-based rather than route-based. Valid screen values are:
 
 ### Component Styles
 
-Each component should have its own CSS file located next to the corresponding component file.
+Each component should have its own modular style file ([component-name].module.css) located next to the corresponding component file.
 
 Examples:
 
