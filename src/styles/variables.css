@@ -29,6 +29,8 @@
 
     --color-rust:         #BC6242;
     --color-rust-tint:    #EEDBCF;
+    --color-coral-peach:  #FFAC8E;
+    --color-brown:        #914D35;
 
     --color-white:        #FFFFFF;
     --color-orange:       #F5845C;
@@ -63,6 +65,7 @@
     --radius-pill: 999px;
 
     /* Border weight */
+    --border-thinest: 1px;
     --border-thin:   2px;
     --border-medium: 4px;
     --border-thick:  6px;
@@ -110,7 +113,10 @@
     --text-tertiary: var(--color-muted-on-dark);
     --text-inverse: var(--color-merino);     
 
-    --border-subtle: var(--color-ink-soft);   
+    --border-subtle: var(--color-ink-soft);
+    --border-green: var(--color-olive-ink);   /* Used for green-accented borders, e.g. correct-answer highlights or active selections. */
+    --border-red: var(--color-rust);          /* Used for red-accented borders, e.g. incorrect-answer highlights or error states. */
+    --border-ghost: var(--color-sand);       /* A very light, almost invisible border color. Used for subtle dividers or focus outlines that shouldn't be too visually heavy. */
 
     --action-primary-bg: var(--color-olive-deep);  /* Main brand color. Used for primary buttons, active tab lines, or progress bars. */
     --action-primary-text: var(--text-inverse);  /* Text color for primary actions. Should have high contrast against the primary background. */ 
@@ -120,15 +126,27 @@
     --accent-primary-default: var(--color-olive-deep);  /* Main brand color. Use it for active tab lines, progress bars, or checkbox checkmarks. */
     --accent-primary-subtle: var(--color-lime-soft);  /* Badges, selection states, highlighted containers */
     --accent-primary-strong: var(--color-olive-ink);  /* Hover states, active states, or any time you want a stronger emphasis than the default primary */
+    --accent-primary-ghost: var(--color-lime-tint);  /* Lightest lime surface. Used for hover backgrounds or very subtle selection highlights. */
     --accent-secondary-default: var(--color-mauve);  /* Raw secondary brand color. Use it for secondary feature blocks, illustrative accents, or secondary metric numbers on a dashboard. */
     --accent-secondary-subtle: var(--color-mauve-tint);  /* A very soft tint of your secondary color. Used for the background of specific feature cards, banners, or specialized category tags. */
     --accent-secondary-strong: var(--color-mauve-deep);  /* Secondary brand-colored text. Used for specific category links, sub-headers, or highlighted keyword text. */
-  
+    --accent-tertiary-default: var(--color-rust);  /* A tertiary accent color. Use it for destructive actions, error states, or any time you want a strong contrast against both primary and secondary colors. */ 
+    --accent-tertiary-ghost: var(--color-rust-tint);  /* A soft tint of your tertiary color. Used for error state backgrounds, destructive action hover states, or subtle highlights that still need to read as "dangerous". */
+    --accent-tertiary-subtle: var(--color-coral-peach);  /* A softer, more approachable version of your tertiary color. Used for warning states, less severe destructive actions, or any time you want to convey caution without the full intensity of the default tertiary. */
+    --accent-tertiary-strong: var(--color-brown);  /* A deeper, more muted version of your tertiary color. Used for error state text, secondary destructive action text, or any time you want a more serious, grounded tone than the default tertiary. */
+
     --feedback-success: var(--color-lime);  /* Green — for completed tasks or confirmation */
     --feedback-warning: var(--color-orange);  /* Yellow/Orange — for alerts or pending states */
     --feedback-error: var(--color-rust);  /* Red — for system errors or destructive actions*/
     --feedback-info: var(--color-blue);  /* Blue — for informational messages or neutral actions */
-  
+
+    --shadow-content:
+      0 4px   4px  0 rgba(0,0,0,0.251),
+      0 18px  39px 0 rgba(0,0,0,0.051),
+      0 71px  71px 0 rgba(0,0,0,0.039),
+      0 161px 96px 0 rgba(0,0,0,0.031),
+      0 285px 114px 0 rgba(0,0,0,0.012);  /* Multi-layer shadow for quiz cards and main content panels. */
+
 }
 
 @supports (color: oklch(0 0 0)) {
@@ -154,6 +172,8 @@
 
     --color-rust:         oklch(59.56% 0.1247  39.98);
     --color-rust-tint:    oklch(90.36% 0.0266  54.54);
+    --color-coral-peach:  oklch(81.77% 0.1085  39.65);
+    --color-brown:        oklch(49.74% 0.0992  39.44);
 
     --color-white:        oklch(100%   0.0000  89.88);
     --color-orange:       oklch(73.09% 0.1488  39.96);

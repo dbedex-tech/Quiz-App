@@ -1,11 +1,7 @@
-function App() {
-  
+import HomeScreen from './screens/HomeScreen';
 
-  return (
-    <>
-      <h1>Quiz App</h1>
-    </>
-  )
+function App() {
+  return <HomeScreen />;
 }
 
-export default App
+export default App;
