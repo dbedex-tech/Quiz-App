@@ -1,7 +1,7 @@
 import { useState } from 'react';  
 import HomeScreen from './screens/HomeScreen';
 import QuizScreen from './screens/QuizScreen';
-import ResultsScreen from './screens/ResultScreen';
+import ResultsScreen from './screens/ResultsScreen';
 
 function App() {
   /* App.jsx manages currentScreen, selectedTopic, score, totalQuestions, and quizStatus. */
