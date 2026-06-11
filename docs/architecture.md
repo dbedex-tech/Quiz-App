@@ -131,7 +131,15 @@ Each screen lives in its own folder (`ScreenName/`) containing the `.jsx` file, 
 
 ### Data
 
-- `quizTopics.js`: Stores the available quiz categories.
+- `quizTopics.js`: Stores the available quiz topics and their metadata.
+
+Each topic object contains the information required by the Home screen and Quiz screen, such as:
+
+- Topic id
+- Topic name
+- Timer duration
+- Topic artwork/icon
+- Any additional topic-specific configuration required by the quiz
 
 ### Utilities
 
@@ -255,7 +263,8 @@ This ensures visual consistency across the application and simplifies future des
 ### `selectedTopic`
 
 - Stores the topic selected on the Home screen
-- Used to fetch quiz questions and display quiz context
+- Contains the topic metadata required during the quiz session
+- Used to fetch quiz questions and configure the quiz (e.g. timer duration)
 
 ### `totalQuestions`
 

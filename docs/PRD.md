@@ -27,7 +27,7 @@ Initial categories:
 - JavaScript
 - React
 - Python
-- Typescript
+- TypeScript
 
 Questions are fetched from QuizAPI based on the selected category.
 
