@@ -4,26 +4,34 @@ import QuizScreen from './screens/QuizScreen';
 import ResultsScreen from './screens/ResultsScreen';
 
 function App() {
-  /* App.jsx manages currentScreen, selectedTopic, score, totalQuestions, and quizStatus. */
   const [currentScreen, setCurrentScreen] = useState("home");
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [score, setScore] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
-  const [quizStatus, setQuizStatus] = useState('idle'); 
-  /* startQuiz() updates quiz state and renders QuizScreen. */
+  const [quizStatus, setQuizStatus] = useState('idle');
+
   function startQuiz(topic) {
-    setSelectedTopic(topic);
+    if (!selectedTopic) return;
+ 
+    setScore(0);
+    setTotalQuestions(0);
     setQuizStatus('active');
     setCurrentScreen('quiz');
   }
-  /* finishQuiz() updates final quiz state and renders ResultsScreen. */
-  function finishQuiz(finalScore, total, status) {
-    setScore(finalScore);
-    setTotalQuestions(total);
+
+  function handleSelectTopic(topic) {
+    setSelectedTopic(topic);
+  }
+
+  function incrementScore() { 
+    setScore((previousScore) => previousScore + 1);
+  } 
+
+  function finishQuiz(status) {
     setQuizStatus(status);
     setCurrentScreen('results');
   }
-  /* resetQuiz() clears quiz state and renders HomeScreen. */
+
   function resetQuiz() {
     setSelectedTopic(null);
     setScore(0);
@@ -31,28 +39,39 @@ function App() {
     setQuizStatus('idle');
     setCurrentScreen('home');
   }
-  /* Required state and callback functions are passed to the corresponding screen components. */
-  if (currentScreen === 'quiz') { 
+
+  if (currentScreen === 'quiz') {
     return (
       <QuizScreen
         selectedTopic={selectedTopic}
+        score={score}
+        totalQuestions={totalQuestions}
+        quizStatus={quizStatus}
+        onIncrementScore={incrementScore}
+        onSetTotalQuestions={setTotalQuestions}
         onFinish={finishQuiz}
         onCancel={resetQuiz}
       />
-    )
-  };
-  if (currentScreen === 'results') { 
+    );
+  }
+
+  if (currentScreen === 'results') {
     return (
       <ResultsScreen
         score={score}
         totalQuestions={totalQuestions}
-        quizStatus={quizStatus}
         onReturnHome={resetQuiz}
       />
-    )
-  };
-  /* App.jsx renders HomeScreen by default.*/
-  return <HomeScreen onStart={startQuiz} />;
+    );
+  }
+
+  return (
+    <HomeScreen
+      selectedTopic={selectedTopic}
+      onSelectTopic={handleSelectTopic}
+      onStart={startQuiz}
+    />
+  );
 }
 
 export default App;
