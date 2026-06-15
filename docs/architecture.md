@@ -137,7 +137,6 @@ Each topic object contains the information required by the Home screen and Quiz 
 
 - Topic id
 - Topic name
-- Timer duration
 - Topic artwork/icon
 - Any additional topic-specific configuration required by the quiz
 
@@ -264,7 +263,7 @@ This ensures visual consistency across the application and simplifies future des
 
 - Stores the topic selected on the Home screen
 - Contains the topic metadata required during the quiz session
-- Used to fetch quiz questions and configure the quiz (e.g. timer duration)
+- Used to fetch quiz questions and configure the quiz
 
 ### `totalQuestions`
 
