@@ -279,13 +279,13 @@ This ensures visual consistency across the application and simplifies future des
 
 ### `quizStatus`
 
-- Stores the overall quiz lifecycle
+- Stores how the quiz ended.
+- Used by ResultsScreen to display the appropriate status message.
 - Values:
-  - `idle`: quiz has not started
-  - `active`: quiz is running
   - `completed`: all questions were answered before time expired
   - `expired`: the global timer reached zero
-  - `cancelled`: the user exited the quiz
+
+The value remains `null` while the quiz is not finished.
 
 ### QuizScreen.jsx State
 
@@ -348,8 +348,10 @@ This ensures visual consistency across the application and simplifies future des
 
 ### ResultsScreen.jsx
 
-- Displays the final score and a result feedback message
 - Receives `score`, `totalQuestions`, and `quizStatus`
+- Displays the final score
+- Displays a performance message based on the user's final score
+- Displays a status message based on quizStatus (e.g. completed or expired)
 - Lets the user return Home and reset the quiz
 
 ## DATA FLOW
@@ -378,7 +380,7 @@ This ensures visual consistency across the application and simplifies future des
 
 1. The user lands on `HomeScreen.jsx`.
 2. The user selects a topic and starts the quiz.
-3. `App.jsx` stores `selectedTopic`, sets `quizStatus` to active, and switches `currentScreen` to `quiz`.
+3. `App.jsx` stores `selectedTopic` and switches `currentScreen` to `quiz`.
 4. `QuizScreen.jsx` fetches questions for the selected topic.
 5. Questions are normalized, randomized, stored in `questions`, and counted in `totalQuestions`.
 6. The global timer starts only after questions load successfully.
@@ -456,8 +458,7 @@ Modal actions:
   2. Clear the timer
   3. Clear `selectedTopic`
   4. Reset `score` to `0`
-  5. Set `quizStatus` to `cancelled`
-  6. Set `currentScreen` to `home`
+  5. Set `currentScreen` to `home`
 
 ### Results Flow
 

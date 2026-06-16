@@ -141,14 +141,11 @@ Purpose:
 After completing the quiz:
 
 - Final score is shown (example: 7/10)
-- Small feedback message is displayed depending on the result
-
-Example messages:
-
-- Great job!
-- Nice progress, keep practicing!
-- You should review the basics a bit more.
-
+- A performance message is displayed based on the score achieved (e.g. Great job! - Nice progress, keep practicing! - You should review the basics a bit more.)
+- The screen may display a different status message depending on how the quiz ended:
+  - Quiz completed (e.g. Quiz completed!)
+  - Time expired (e.g. Time's up!)
+  
 
 ## SCREENS
 
@@ -210,6 +207,8 @@ If confirmed:
 ### RESULTS SCREEN
 
 - Circular score gauge showing the final score (example: 7/10)
+- Final score
+- Quiz status message
 - Feedback message
 - Return Home button
 
