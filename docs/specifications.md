@@ -1,6 +1,6 @@
 # DevQuiz — Layout & UI Pattern Specification
 
-**Source:** Figma file `Quiz-App`, page "UI Design" that contains Home, Quiz, and Results frames plus the Exit Confirmation modal. Link: https://www.figma.com/design/bjSH4xpgWptKjggpjRC2y6/Quiz-App?node-id=4-31&p=f&t=zNJawqOzk5e19gVk-0
+**Source:** Figma file `Quiz-App`, page "UI Design" that contains Home, Quiz, and Results frames plus the Exit Confirmation modal. [Link]: (https://www.figma.com/design/bjSH4xpgWptKjggpjRC2y6/Quiz-App?node-id=4-31&p=f&t=zNJawqOzk5e19gVk-0)
 
 **Scope:** Layout structure and UI component patterns, which control type is used for each element and where it sits in the screen.
 
@@ -24,12 +24,12 @@ Order: header (logo + copy) → topic selector → "Start Quiz" button.
 
 ### 2.1 Topic Selector — **Decision: selectable cards in a grid**
 
-Cards, not a dropdown, radio list, or plain button row. Each topic is a card containing a topic icon, the topic name, and a metadata line ("N questions · M min").
+Cards, not a dropdown, radio list, or plain button row. Each topic is a card containing a topic icon and the topic name.
 
 - **Selection model:** single-select. The chosen card gets a distinct selected treatment plus a check badge pinned to its top-right corner.
 - **Affordance:** the whole card is the target; a hover state exists.
 
-**Rationale:** cards carry per-topic metadata (question count, duration) inline and give a large target — a dropdown or button row can't do that as cleanly.
+**Rationale:** cards give a large touch/click target and a clear visual identity per topic — a dropdown or button row can't do that as cleanly.
 
 **Implementation:** each card is a `<label>` wrapping a visually hidden `<input type="radio">`. The radio group provides native single-select semantics and keyboard navigation; the card visual state is driven by the `:checked` pseudo-class on the input.
 
@@ -45,25 +45,34 @@ A single primary button ("START QUIZ" + arrow), centered beneath the topic grid.
 
 ## 3. Quiz Screen
 
-Order: quiz header → question → answer options → feedback → Next button.
+Order: quiz header → topic context → question → answer options → feedback → Next button.
 
 ### 3.1 Timer — **Placement: header, top-right**
 
 A clock icon + countdown, right-aligned on the same row as the logo.
 
-### 3.2 Timer Progress Bar — Placement: directly below the header row, full width
+### 3.2 Topic Context — **Placement: below the progress bar, left-aligned**
+
+A single inline row displaying the selected topic so the user always knows which quiz they are in. Layout: `[icon] [name] > [description]`
+
+- **Icon:** the topic artwork image in a small bordered square.
+- **Name:** the topic name in uppercase text.
+- **Separator:** a `>` character between name and description.
+- **Description:** a short one-line topic description (e.g. "the standard markup language for structuring web page content using elements and tags.").
+
+### 3.3 Timer Progress Bar — Placement: directly below the header row, full width
 
 A full-width pill track with a fill segment indicating the remaining quiz time. The bar decreases as the global countdown timer decreases.
 
-### 3.3 Question Counter — **Placement: row below the progress bar, left**
+### 3.4 Question Counter — **Placement: row below the progress bar, left**
 
 "QUESTION X OF 10", left-aligned, opposite the Exit control.
 
-### 3.4 Question Presentation — **Decision: text block in the main container, not a bordered sub-card**
+### 3.5 Question Presentation — **Decision: text block in the main container, not a bordered sub-card**
 
 The question is a heading-level text block sitting directly in the panel. It is *not* wrapped in its own card or bordered box, keeping visual weight on the answers.
 
-### 3.5 Answer Options — **Decision: lettered option tiles in a grid**
+### 3.6 Answer Options — **Decision: lettered option tiles in a grid**
 
 Each option is a bordered, rounded tile containing a letter chip (A/B/C/D in its own boxed token) plus the answer text.
 
@@ -79,17 +88,17 @@ Each option is a bordered, rounded tile containing a letter chip (A/B/C/D in its
 
 All inputs receive `disabled` after validation to lock the group.
 
-### 3.6 Feedback & Explanation — **Placement: below the answer grid, above the Next button**
+### 3.7 Feedback & Explanation — **Placement: below the answer grid, above the Next button**
 
 After answering, an in-flow feedback block appears (it pushes the Next button down; it is not an overlay):
 1. **Status row:** an icon (correct/incorrect) + a status label ("CORRECT!" / the incorrect equivalent).
 2. **Explanation:** a dashed-border box with a "Why:" prefix followed by a one-sentence explanation.
 
-### 3.7 Next Question Button — **Placement: bottom of the body, centered**
+### 3.8 Next Question Button — **Placement: bottom of the body, centered**
 
 A single primary button ("NEXT QUESTION" + arrow), centered below the feedback block. Appears once an answer is submitted; on the final question it advances to Results.
 
-### 3.8 Exit Quiz Button — **Placement: question-counter row, right**
+### 3.9 Exit Quiz Button — **Placement: question-counter row, right**
 
 A low-emphasis text control ("EXIT QUIZ" + close glyph), right-aligned opposite the counter. Opens the Exit Confirmation modal (§5).
 
