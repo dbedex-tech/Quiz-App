@@ -169,7 +169,9 @@ Static assets live in `src/assets/`. Current contents:
 - Stores the final score
 - Stores overall quiz status
 - Exposes shared actions:
+  - `handleSelectTopic`
   - `startQuiz`
+  - `incrementScore`
   - `finishQuiz`
   - `resetQuiz`
 
@@ -331,8 +333,7 @@ This ensures visual consistency across the application and simplifies future des
 
 - Displays the app title or logo, welcome text, topic selector, and Start Quiz button
 - Lets the user choose a topic
-- Keeps the Start Quiz button disabled until a topic is selected
-- Passes the selected topic to `App.jsx`
+- Calls `handleSelectTopic()` on each topic card selection to update `selectedTopic` in `App.jsx`
 - Triggers `startQuiz()` and moves the user to the quiz screen
 
 ### QuizScreen.jsx
@@ -341,7 +342,8 @@ This ensures visual consistency across the application and simplifies future des
 - Receives `selectedTopic` from `App.jsx`
 - Fetches, normalizes, and randomizes quiz questions
 - Reports `totalQuestions` to `App.jsx`
-- Manages question progression, answer validation, scoring updates, timer behavior, and exit confirmation
+- Calls `incrementScore()` on each correct answer to update `score` in `App.jsx`
+- Manages question progression, answer validation, timer behavior, and exit confirmation
 - Redirects to Results when the quiz is completed or expired
 
 ### ResultsScreen.jsx
@@ -361,12 +363,12 @@ This ensures visual consistency across the application and simplifies future des
 
 ### Flow Between Layers
 
-1. `HomeScreen.jsx` updates `selectedTopic` through `App.jsx`.
+1. `HomeScreen.jsx` calls `handleSelectTopic()` on each topic card selection, updating `selectedTopic` in `App.jsx`.
 2. `App.jsx` switches `currentScreen` from `home` to `quiz`.
 3. `QuizScreen.jsx` requests questions through `quizApi.js`.
 4. `quizApi.js` fetches, validates, and formats the API response.
 5. `QuizScreen.jsx` stores randomized questions locally and sends `totalQuestions` upward to `App.jsx`.
-6. Quiz interactions update local quiz state; score and final quiz status update shared state in `App.jsx`.
+6. Quiz interactions update local quiz state; `QuizScreen.jsx` calls `incrementScore()` on each correct answer and reports final quiz status via `finishQuiz()`, both updating shared state in `App.jsx`.
 7. `App.jsx` switches to `results` when the quiz finishes or expires.
 8. `ResultsScreen.jsx` reads final shared state and offers reset navigation back to `home`.
 
