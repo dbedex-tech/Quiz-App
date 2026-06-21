@@ -97,7 +97,7 @@ h4 {
 
 p {
   font-family: var(--font-ui);
-  font-size: var(--fs-base);
+  font-size: var(--fs-lg);
   line-height: var(--lh-relaxed);
   color: var(--text-secondary);
 }
