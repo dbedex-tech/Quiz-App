@@ -27,7 +27,8 @@ function QuizScreen({
   totalQuestions,
   onSetTotalQuestions,
   onCancel,
-  onFinish
+  onFinish,
+  onIncrementScore
 }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isValidated, setIsValidated] = useState(false);
@@ -44,8 +45,14 @@ function QuizScreen({
   }, [isValidated]);
 
   const handleAnswerSelect = (answer) => {
+    if (isValidated) return;
+
     setSelectedAnswer(answer);
     setIsValidated(true);
+
+    if (answer === mockQuestion.correctAnswer) {
+      onIncrementScore();
+    }
   };
 
   return (

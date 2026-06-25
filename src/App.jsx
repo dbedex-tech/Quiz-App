@@ -44,7 +44,6 @@ function App() {
     return (
       <QuizScreen
         selectedTopic={selectedTopic}
-        score={score}
         totalQuestions={totalQuestions}
         quizStatus={quizStatus}
         onIncrementScore={incrementScore}
