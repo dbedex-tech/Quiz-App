@@ -1,5 +1,5 @@
 function ResultsScreen() {
-  return <div className={styles.resultsScreen}>Results Screen</div>;
+  return <div>Results Screen</div>;
 }
 
 export default ResultsScreen;

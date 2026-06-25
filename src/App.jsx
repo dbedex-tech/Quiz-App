@@ -10,7 +10,7 @@ function App() {
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [quizStatus, setQuizStatus] = useState('idle');
 
-  function startQuiz(topic) {
+  function startQuiz() {
     if (!selectedTopic) return;
  
     setScore(0);
