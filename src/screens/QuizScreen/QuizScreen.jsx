@@ -79,8 +79,8 @@ function QuizScreen({
       />
       {isValidated && (
         <div className={styles.feedbackSection}>
-          <FeedbackMessage />
-          <ExplanationBox />
+          <FeedbackMessage isCorrect={selectedAnswer === mockQuestion.correctAnswer} />
+          <ExplanationBox explanation={mockQuestion.explanation} />
         </div>
       )}
     </ScreenLayout>
