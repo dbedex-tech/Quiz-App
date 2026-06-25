@@ -11,6 +11,8 @@ const mockQuestion = {
   explanation: "JSX lets you write HTML-like syntax inside JavaScript."
 };
 
+import ScreenLayout from '../../components/ScreenLayout';
+
 function QuizScreen({
   selectedTopic,
   score,
@@ -22,9 +24,9 @@ function QuizScreen({
   onCancel,
 }) {
   return (
-    <>
-    <h1>Quiz Screen</h1>
-    </>
+    <ScreenLayout>
+      <h1>Quiz Screen</h1>
+    </ScreenLayout>
   );
 }
 
