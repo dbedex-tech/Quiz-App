@@ -54,8 +54,7 @@ function QuizScreen({
         <div className={styles.topicSummary}>
           <img src={selectedTopic.image} alt="Topic icon" className={styles.topicIcon} />
           <div className={styles.topicText}>
-            <p className={styles.topicName}>{selectedTopic.name}</p>
-            <p className={styles.topicDescription}>&gt; {selectedTopic.description}</p>
+            <p className={styles.topicDescription}><span className={styles.topicName}>{selectedTopic.name}</span>&gt; {selectedTopic.description}</p>
           </div>
         </div>
       </header>

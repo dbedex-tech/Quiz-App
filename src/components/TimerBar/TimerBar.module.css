@@ -16,5 +16,10 @@
   width: 48%;
   background: linear-gradient(0deg, var(--accent-primary-default), var(--accent-primary-subtle));
   border-radius: var(--radius-pill);
-  
+}
+
+@media (max-width: 768px) {
+  .timerBar {
+    height: 8px;
+  }
 }
