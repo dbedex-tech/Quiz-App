@@ -17,6 +17,40 @@
     background-color: var(--color-merino);
 }
 
+.answerOption:disabled,
+.answerOption:disabled:hover {
+  background-color: var(--surface-primary);
+  cursor: not-allowed;
+}
+
+.answerOption.correct:disabled,
+.answerOption.correct:disabled:hover {
+  background: var(--accent-primary-ghost);
+  color: var(--accent-primary-strong);
+  border-color: var(--border-green);
+  cursor: not-allowed;
+}
+
+.answerOption.incorrect:disabled,
+.answerOption.incorrect:disabled:hover {
+  background: var(--accent-tertiary-ghost);
+  color: var(--accent-tertiary-strong);
+  border-color: var(--border-red);
+  cursor: not-allowed;
+}
+
+.answerOption.correct {
+  border-color: var(--border-green);
+  background: var(--accent-primary-ghost);
+  color: var(--accent-primary-strong);
+}
+
+.answerOption.incorrect {
+  border-color: var(--border-red);
+  background: var(--accent-tertiary-ghost);
+  color: var(--accent-tertiary-strong);
+}
+
 .letter {
   display: inline-flex;
   align-items: center;
@@ -28,6 +62,18 @@
   font-weight: var(--fw-bold);
   border: 1px solid var(--border-subtle);
   background-color: var(--color-sand);
+}
+
+.letter.correct {
+  background: var(--accent-primary-subtle);
+  border-color: var(--border-green);
+  color: var(--accent-primary-strong);
+}
+
+.letter.incorrect {
+  background: var(--accent-tertiary-subtle);
+  border-color: var(--border-red);
+  color: var(--accent-tertiary-strong);
 }
 
 .text {

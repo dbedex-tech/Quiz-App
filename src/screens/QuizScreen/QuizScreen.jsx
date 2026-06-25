@@ -11,9 +11,11 @@ const mockQuestion = {
   explanation: "JSX lets you write HTML-like syntax inside JavaScript."
 };
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ScreenLayout from '../../components/ScreenLayout';
 import QuestionCard from '../../components/QuestionCard/QuestionCard';
+import FeedbackMessage from '../../components/FeedbackMessage/FeedbackMessage';
+import ExplanationBox from '../../components/ExplanationBox/ExplanationBox';
 import logo from '../../assets/logo-desktop-on-light.svg';
 import styles from './QuizScreen.module.css';
 import TimerBar from '../../components/TimerBar';
@@ -21,17 +23,21 @@ import clockIcon from '../../assets/clock-icon.svg';
 
 function QuizScreen({
   selectedTopic,
-  score,
   totalQuestions,
-  quizStatus,
-  onIncrementScore,
   onSetTotalQuestions,
-  onFinish,
   onCancel,
 }) {
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [isValidated, setIsValidated] = useState(false);
+
   useEffect(() => {
     onSetTotalQuestions(20);
   }, [onSetTotalQuestions]);
+
+  const handleAnswerSelect = (answer) => {
+    setSelectedAnswer(answer);
+    setIsValidated(true);
+  };
 
   return (
     <ScreenLayout>
@@ -64,7 +70,19 @@ function QuizScreen({
           </div>
         </div>
       </header>
-      <QuestionCard question={mockQuestion.question} answers={mockQuestion.answers} />
+      <QuestionCard
+        question={mockQuestion.question}
+        answers={mockQuestion.answers}
+        correctAnswer={mockQuestion.correctAnswer}
+        selectedAnswer={selectedAnswer}
+        onSelectAnswer={handleAnswerSelect}
+      />
+      {isValidated && (
+        <div className={styles.feedbackSection}>
+          <FeedbackMessage />
+          <ExplanationBox />
+        </div>
+      )}
     </ScreenLayout>
   );
 }
