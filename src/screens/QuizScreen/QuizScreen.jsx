@@ -11,6 +11,7 @@ const mockQuestion = {
   explanation: "JSX lets you write HTML-like syntax inside JavaScript."
 };
 
+import { useEffect } from 'react';
 import ScreenLayout from '../../components/ScreenLayout';
 import logo from '../../assets/logo-desktop-on-light.svg';
 import styles from './QuizScreen.module.css';
@@ -27,7 +28,9 @@ function QuizScreen({
   onFinish,
   onCancel,
 }) {
-  onSetTotalQuestions(20);
+  useEffect(() => {
+    onSetTotalQuestions(20);
+  }, [onSetTotalQuestions]);
 
   return (
     <ScreenLayout>
