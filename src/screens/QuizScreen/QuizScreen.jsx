@@ -13,6 +13,7 @@ const mockQuestion = {
 
 import { useEffect } from 'react';
 import ScreenLayout from '../../components/ScreenLayout';
+import QuestionCard from '../../components/QuestionCard/QuestionCard';
 import logo from '../../assets/logo-desktop-on-light.svg';
 import styles from './QuizScreen.module.css';
 import TimerBar from '../../components/TimerBar';
@@ -63,6 +64,7 @@ function QuizScreen({
           </div>
         </div>
       </header>
+      <QuestionCard question={mockQuestion.question} answers={mockQuestion.answers} />
     </ScreenLayout>
   );
 }

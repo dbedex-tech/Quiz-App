@@ -155,6 +155,7 @@
     width: 100%;
     align-items: flex-start;
     gap: var(--space-3);
+    margin: var(--space-3) 0;
   }
 
   .topicIcon {
@@ -176,3 +177,4 @@
     line-height: var(--lh-normal);
   }
 }
+
