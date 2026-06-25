@@ -1,0 +1,120 @@
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.rowTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.logo {
+  height: 36px;
+  width: auto;
+}
+
+.timerMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.clockIcon {
+  width: 20px;
+  height: auto;
+}
+
+.timerText {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.timerRow {
+  width: 100%;
+}
+
+.rowSecondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.questionCounter {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.exitButton {
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  color: var(--accent-tertiary-default);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.topicSummary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.topicIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  border: var(--border-thin) solid var(--border-subtle);
+  background: var(--surface-secondary);
+  object-fit: cover;
+}
+
+.topicText {
+  display: flex;
+  /* flex-direction: column; */
+  gap: var(--space-1);
+}
+
+.topicName {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.topicDescription {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .header {
+    gap: var(--space-5);
+  }
+
+  .rowTop,
+  .rowSecondary,
+  .topicSummary {
+    /* flex-direction: column; */
+    align-items: flex-start;
+  }
+
+  .timerMeta {
+    width: 100%;
+  }
+
+  .exitButton {
+    width: 100%;
+    text-align: left;
+  }
+}
