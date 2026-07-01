@@ -8,13 +8,15 @@ function QuestionCard({ question, answers, correctAnswer, selectedAnswer, onSele
       <div className={styles.answersGrid}>
         {answers.map((answer, idx) => {
           const letter = String.fromCharCode(65 + idx);
-          const status = selectedAnswer
-            ? answer === correctAnswer
-              ? 'correct'
-              : answer === selectedAnswer
-              ? 'incorrect'
-              : undefined
-            : undefined;
+          let status;
+
+          if (selectedAnswer) {
+            if (answer === selectedAnswer) {
+              status = answer === correctAnswer ? 'correct' : 'incorrect';
+            } else if (answer === correctAnswer) {
+              status = 'reveal';
+            }
+          }
 
           return (
             <AnswerOption
@@ -22,6 +24,7 @@ function QuestionCard({ question, answers, correctAnswer, selectedAnswer, onSele
               letter={letter}
               description={answer}
               status={status}
+              checked={selectedAnswer === answer}
               onSelect={() => onSelectAnswer(answer)}
               disabled={Boolean(selectedAnswer)}
             />

@@ -1,34 +1,20 @@
 import styles from './AnswerOption.module.css';
 
-function AnswerOption({ letter, description, status, onSelect, disabled }) {
-  const buttonClassNames = [
-    styles.answerOption,
-    status === 'correct' ? styles.correct : null,
-    status === 'incorrect' ? styles.incorrect : null,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
-  const letterClassNames = [
-    styles.letter,
-    status === 'correct' ? styles.correct : null,
-    status === 'incorrect' ? styles.incorrect : null,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
-    
-
+function AnswerOption({ letter, description, status, checked, onSelect, disabled }) {
   return (
-    <button
-      type="button"
-      className={buttonClassNames}
-      onClick={onSelect}
-      disabled={disabled}
-    >
-      <span className={letterClassNames} aria-hidden="true">{letter}</span>
+    <label className={styles.answerOption} data-state={status}>
+      <input
+        type="radio"
+        name="answer"
+        value={description}
+        checked={checked}
+        onChange={onSelect}
+        disabled={disabled}
+        className="visually-hidden"
+      />
+      <span className={styles.letter} aria-hidden="true">{letter}</span>
       <span className={styles.text}>{description}</span>
-    </button>
+    </label>
   );
 }
 
