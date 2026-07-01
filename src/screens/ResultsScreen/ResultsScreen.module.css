@@ -123,7 +123,7 @@
     width: 216px; /* Fixed width for the inner border */
     height: 216px; /* Fixed height for the inner border */
     border-radius: 50%; /* Make it a circle */
-    border: var(--border-hairline) dashed var(-border-subtle); /* Dashed border for decoration */
+    border: var(--border-hairline) dashed var(--border-subtle); /* Dashed border for decoration */
 }
 
 /* Solid decorative outer border */ 
