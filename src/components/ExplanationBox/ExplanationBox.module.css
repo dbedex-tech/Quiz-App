@@ -1,0 +1,13 @@
+.explanationBox {
+  border: 2px dashed rgba(0,0,0, 0.2);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  margin: 0 auto;
+  max-width: 720px;
+  background: transparent;
+}
+
+.explanationBox .text {
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+}

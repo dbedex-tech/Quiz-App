@@ -1,0 +1,27 @@
+.feedbackMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-family: var(--font-ui);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-lg);
+}
+
+.feedbackMessage .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.feedbackMessage.correct {
+  color: var(--accent-primary-strong);
+}
+
+.feedbackMessage.incorrect {
+  color: var(--accent-tertiary-default);
+}
+
+.label {
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+}

@@ -69,6 +69,12 @@ Note:
 npm run dev
 ```
 
+To test the app from another device on the same local network, start the dev server with host binding:
+
+```bash
+npm run dev -- --host
+```
+
 ## Project Structure
 
 ```txt
