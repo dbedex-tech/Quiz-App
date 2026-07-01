@@ -9,7 +9,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-6);
 }
 
 .logo {
@@ -20,7 +19,7 @@
 .timerMeta {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);  
 }
 
 .clockIcon {
@@ -42,22 +41,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-6);
 }
 
 .questionCounter {
-  font-size: var(--fs-lg);
+  font-size: var(--fs-xl);
   font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-wide);
+  letter-spacing: var(--ls-normal);
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: var(--text-tertiary);
 }
 
 .exitButton {
   font-family: var(--font-ui);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-widest);
+  letter-spacing: var(--ls-wider);
   color: var(--accent-tertiary-default);
   text-transform: uppercase;
   display: inline-flex;
