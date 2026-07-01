@@ -13,26 +13,22 @@
   box-sizing: border-box;
 }
 
-.answerOption:hover {
-    background-color: var(--color-merino);
+.answerOption:enabled:hover {
+  background-color: var(--color-merino);
 }
 
-.answerOption:disabled,
-.answerOption:disabled:hover {
-  background-color: var(--surface-primary);
+.answerOption:disabled {
   cursor: not-allowed;
 }
 
-.answerOption.correct:disabled,
-.answerOption.correct:disabled:hover {
+.answerOption.correct:disabled {
   background: var(--accent-primary-ghost);
   color: var(--accent-primary-strong);
   border-color: var(--border-green);
   cursor: not-allowed;
 }
 
-.answerOption.incorrect:disabled,
-.answerOption.incorrect:disabled:hover {
+.answerOption.incorrect:disabled {
   background: var(--accent-tertiary-ghost);
   color: var(--accent-tertiary-strong);
   border-color: var(--border-red);
