@@ -1,15 +1,24 @@
-const mockQuestion = {
-  id: 1,
-  question: "What does JSX stand for?",
-  answers: [
-    "JavaScript XML",
-    "Java Syntax Extension",
-    "JSON XML",
-    "JavaScript Extension"
-  ],
-  correctAnswer: "JavaScript XML",
-  explanation: "JSX lets you write HTML-like syntax inside JavaScript."
-};
+const mockQuestions = [
+  {
+    id: 1,
+    question: "What does JSX stand for?",
+    answers: [
+      "JavaScript XML",
+      "Java Syntax Extension",
+      "JSON XML",
+      "JavaScript Extension"
+    ],
+    correctAnswer: "JavaScript XML",
+    explanation: "JSX lets you write HTML-like syntax inside JavaScript."
+  },
+  {
+    id: 2,
+    question: "Which React Hook is used to manage local component state?",
+    answers: ["useEffect", "useState", "useContext", "useRef"],
+    correctAnswer: "useState",
+    explanation: "useState adds a state variable that can be updated within a component."
+  }
+];
 
 import { useEffect, useState, useRef } from 'react';
 import ScreenLayout from '../../components/ScreenLayout';
@@ -30,12 +39,14 @@ function QuizScreen({
   onFinish,
   onIncrementScore
 }) {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isValidated, setIsValidated] = useState(false);
   const nextButtonRef = useRef(null);
+  const currentQuestion = mockQuestions[currentQuestionIndex];
 
   useEffect(() => {
-    onSetTotalQuestions(20);
+    onSetTotalQuestions(mockQuestions.length);
   }, [onSetTotalQuestions]);
 
   useEffect(() => {
@@ -50,9 +61,22 @@ function QuizScreen({
     setSelectedAnswer(answer);
     setIsValidated(true);
 
-    if (answer === mockQuestion.correctAnswer) {
+    if (answer === currentQuestion.correctAnswer) {
       onIncrementScore();
     }
+  };
+
+  const handleNextQuestion = () => {
+    const isLastQuestion = currentQuestionIndex === mockQuestions.length - 1;
+
+    if (isLastQuestion) {
+      onFinish();
+      return;
+    }
+
+    setCurrentQuestionIndex((previousIndex) => previousIndex + 1);
+    setSelectedAnswer(null);
+    setIsValidated(false);
   };
 
   return (
@@ -71,7 +95,7 @@ function QuizScreen({
         </div>
 
         <div className={styles.rowSecondary}>
-          <p className={styles.questionCounter}>Question 6 of {totalQuestions}</p>
+          <p className={styles.questionCounter}>Question {currentQuestionIndex + 1} of {totalQuestions}</p>
           <Button variant="secondary" onClick={onCancel}>
             EXIT QUIZ <span aria-hidden="true">        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-x" viewBox="0 0 16 16">
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
@@ -87,20 +111,20 @@ function QuizScreen({
         </div>
       </header>
       <QuestionCard
-        question={mockQuestion.question}
-        answers={mockQuestion.answers}
-        correctAnswer={mockQuestion.correctAnswer}
+        question={currentQuestion.question}
+        answers={currentQuestion.answers}
+        correctAnswer={currentQuestion.correctAnswer}
         selectedAnswer={selectedAnswer}
         onSelectAnswer={handleAnswerSelect}
       />
       {isValidated && (
         <div className={styles.feedbackSection}>
-          <FeedbackMessage isCorrect={selectedAnswer === mockQuestion.correctAnswer} />
-          <ExplanationBox explanation={mockQuestion.explanation} />
+          <FeedbackMessage isCorrect={selectedAnswer === currentQuestion.correctAnswer} />
+          <ExplanationBox explanation={currentQuestion.explanation} />
         </div>
       )}
       <div ref={nextButtonRef}>
-        <Button variant="primary" disabled={!selectedAnswer} onClick={onFinish}>
+        <Button variant="primary" disabled={!selectedAnswer} onClick={handleNextQuestion}>
           Next Question <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
           </svg>
