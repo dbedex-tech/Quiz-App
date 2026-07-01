@@ -50,7 +50,22 @@
     inset 0 0 0 4px var(--surface-primary);
 }
 
+.secondary {
+  gap: var(--space-2);
+  padding: 0 var(--space-5) 0 0;
+  color: var(--accent-tertiary-default);
+}
+
 .button:disabled {
   background: var(--surface-disabled);
   color: var(--text-tertiary);
+}
+
+@media (max-width: 768px) {
+  .secondary {
+    width: auto;
+    padding: 0;
+    font-size: var(--fs-sm);
+    text-align: right;
+  }
 }
