@@ -90,27 +90,18 @@
     text-align: center; /* Center the text */
 }
 
-/* Button styles */ 
-.button {
-    display: inline-flex; /* Display as an inline flex container */
-    align-items: center; /* Center children vertically */
-    justify-content: center; /* Center children horizontally */
+/* actions styling */
+.actions {
+    display: flex;
+    flex-direction: row; /* Side by side on desktop */
     gap: var(--space-4); /* 16px gap between children */
-    padding: var(--space-5) var(--space-7); /* 20px 28px padding */
-    background: var(--accent-primary-default); /* Primary accent color for the background */
-    color: var(--color-inverse); /* Inverse color for the text */
-    border-radius: var(--radius-pill); /* Pill-shaped border radius */
-    font-family: var(--font-ui); /* Use the UI font */
-    font-weight: var(--fw-bold); /* Bold font weight */
-    font-size: var(--fs-base); /* Base / 16px font size */
-    line-height: 1;     
-    letter-spacing: var(--ls-wider); /* Wider letter spacing */
-    text-transform: uppercase; /* Uppercase text */
+    width: 100%; /* Full width of the parent */
 
-    /* mobile style */ 
     @media (max-width: 768px){
-        width: 100%; /* Full width on smaller screens */
+        flex-direction: column; /* Stack children vertically on smaller screens */
     }
+}
 
-
+.actions > * {
+    flex: 1; /* Equal width buttons when side by side */
 }
