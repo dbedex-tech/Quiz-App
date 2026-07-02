@@ -22,12 +22,14 @@ function ResultsScreen({ score, totalQuestions, onReturnHome, onRetakeQuiz }) {
 
           <ResultsCard score={score} totalQuestions={totalQuestions} />
 
-          <Button onClick={onReturnHome}>
-            Return Home →
-          </Button>
-          <Button onClick={onRetakeQuiz}>
-            Retake Quiz →
-          </Button>
+          <div className={styles.actions}>
+            <Button onClick={onReturnHome}>
+              Return Home →
+            </Button>
+            <Button variant="secondary" onClick={onRetakeQuiz}>
+              Retake Quiz →
+            </Button>
+          </div> 
         </main>
       </div>
     </div>
