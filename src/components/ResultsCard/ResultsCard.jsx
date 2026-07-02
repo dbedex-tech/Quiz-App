@@ -32,7 +32,7 @@ function ResultsCard({ score, totalQuestions }) {
                 </div>
               </div>
     
-              <div className={styles.resultsCopy}>
+              <div className={styles.resultsCopy} aria-live="polite">
                 <h2>{resultTitle}</h2>
                 <p>{resultDescription}</p>
               </div>
