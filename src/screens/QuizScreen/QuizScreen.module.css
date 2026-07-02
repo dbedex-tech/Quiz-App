@@ -1,0 +1,155 @@
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.rowTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 36px;
+  width: auto;
+}
+
+.timerMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.clockIcon {
+  width: 20px;
+  height: auto;
+}
+
+.timerText {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--text-tertiary);
+}
+
+.timerRow {
+  width: 100%;
+}
+
+.rowSecondary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.questionCounter {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-normal);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.topicSummary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.topicIcon {
+  width: 56px;
+  height: 56px;
+  background: var(--surface-secondary);
+  object-fit: cover;
+}
+
+.topicText {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.topicName {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--text-tertiary);
+}
+
+.feedbackSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.topicDescription {
+  font-size: var(--fs-base);
+  color: var(--text-tertiary);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-normal);
+}
+
+@media (max-width: 768px) {
+  .header {
+    gap: var(--space-4);
+  }
+
+  .rowTop {
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .logo {
+    height: 32px;
+    width: auto;
+  }
+
+  .timerMeta {
+    width: auto;
+    gap: var(--space-2);
+  }
+
+  .timerRow {
+    width: 100%;
+  }
+
+  .rowSecondary {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    width: 100%;
+  }
+
+  .questionCounter {
+    font-size: var(--fs-base);
+    letter-spacing: var(--ls-normal);
+  }
+
+  .topicSummary {
+    width: 100%;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin: var(--space-3) 0;
+  }
+
+  .topicIcon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .topicText {
+    gap: var(--space-2);
+  }
+
+  .topicName {
+    font-size: var(--fs-base);
+  }
+
+  .topicDescription {
+    font-size: var(--fs-sm);
+    line-height: var(--lh-normal);
+  }
+}

@@ -70,6 +70,10 @@ project-root/
 │   │   │   ├── ResultsCard.jsx
 │   │   │   ├── ResultsCard.module.css
 │   │   │   └── index.js
+│   │   ├── ScreenLayout/
+│   │   │   ├── ScreenLayout.jsx
+│   │   │   ├── ScreenLayout.module.css
+│   │   │   └── index.js
 │   │   └── TimerBar/
 │   │       ├── TimerBar.jsx
 │   │       ├── TimerBar.module.css
@@ -114,6 +118,7 @@ Each component lives in its own folder (`ComponentName/`) containing the `.jsx` 
 - `FeedbackMessage`: correct/incorrect feedback after validation
 - `ExplanationBox`: question explanation after validation
 - `TimerBar`: countdown display and progress bar
+- `ScreenLayout`: shared layout wrapper for screens with decorative canvas/card framing
 - `ExitQuizModal`: exit confirmation dialog
 - `ResultsCard`: final results summary
 

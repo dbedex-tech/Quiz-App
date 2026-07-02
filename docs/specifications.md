@@ -41,6 +41,8 @@ Centered column: logo, a display heading, and a one-line subtitle/instruction.
 
 A single primary button ("START QUIZ" + arrow), centered beneath the topic grid. It is the only primary action on the screen and is enabled once a topic is selected.
 
+- **Mobile UX:** selecting a topic scrolls the Start button into view so the primary action remains reachable on smaller screens.
+
 ---
 
 ## 3. Quiz Screen
@@ -97,6 +99,8 @@ After answering, an in-flow feedback block appears (it pushes the Next button do
 ### 3.8 Next Question Button — **Placement: bottom of the body, centered**
 
 A single primary button ("NEXT QUESTION" + arrow), centered below the feedback block. Appears once an answer is submitted; on the final question it advances to Results.
+
+- **Mobile UX:** after answer validation, the screen should scroll the Next button into view so the action is accessible without manual scrolling.
 
 ### 3.9 Exit Quiz Button — **Placement: question-counter row, right**
 
