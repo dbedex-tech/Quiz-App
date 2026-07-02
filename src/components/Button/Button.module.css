@@ -45,3 +45,26 @@
   background: var(--surface-disabled);
   color: var(--text-tertiary);
 }
+
+.secondary {
+  border: 1px solid var(--accent-primary-default);
+  color: var(--accent-primary-default); 
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--accent-primary-default);
+  color: var(--color-inverse);
+}
+
+.secondary:active:not(:disabled) {
+  background: var(--accent-primary-strong);
+  color: var(--color-inverse);
+}
+
+.secondary:focus-visible {
+  outline: none;
+  background: var(--accent-primary-strong);
+  box-shadow:
+    0 0 0 4px var(--feedback-warning),
+    inset 0 0 0 4px var(--surface-primary);
+}
