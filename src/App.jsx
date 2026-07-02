@@ -4,10 +4,10 @@ import QuizScreen from './screens/QuizScreen';
 import ResultsScreen from './screens/ResultsScreen';
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState("home");
+  const [currentScreen, setCurrentScreen] = useState("home"); 
   const [selectedTopic, setSelectedTopic] = useState(null);
-  const [score, setScore] = useState(0);
-  const [totalQuestions, setTotalQuestions] = useState(0);
+  const [score, setScore] = useState(0); 
+  const [totalQuestions, setTotalQuestions] = useState(0); 
   const [quizStatus, setQuizStatus] = useState('idle');
 
   function startQuiz() {
@@ -40,6 +40,14 @@ function App() {
     setCurrentScreen('home');
   }
 
+  // retake Quiz function , it should not clear selected topic, but should reset score and total questions and set quiz status to active
+  function retakeQuiz() {
+    setScore(0);
+    setTotalQuestions(0);
+    setQuizStatus('active');
+    setCurrentScreen('quiz');
+  }
+
   if (currentScreen === 'quiz') {
     return (
       <QuizScreen
@@ -61,6 +69,7 @@ function App() {
         score={score}
         totalQuestions={totalQuestions}
         onReturnHome={resetQuiz}
+        onRetakeQuiz={retakeQuiz}
       />
     );
   }
